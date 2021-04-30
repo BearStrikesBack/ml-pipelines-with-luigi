@@ -1,0 +1,5 @@
+numpy==1.19.3
+scipy==1.4.1
+matplotlib==3.1.2
+seaborn==0.10.1
+Pweave==0.30.3

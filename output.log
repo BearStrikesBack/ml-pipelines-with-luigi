@@ -1,0 +1,208 @@
+Creating network "code-challenge-2020_default" with the default driver
+Building luigid
+#1 [internal] load build definition from Dockerfile
+#1 sha256:641ea9c134e3c49109a02c6cb88927dcb611285d4b24ef44c5f2332da7429708
+#1 transferring dockerfile: 374B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:1ae41a34d593bba776562cd01b7198d93f566b79deb5cf6429b11b4845a1b91b
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.6-slim
+#3 sha256:2f3e3e5bbc01bfaeee180b337e8a7a90968d3a73cc25f714787d5f446a863bd5
+#3 DONE 0.8s
+
+#4 [1/5] FROM docker.io/library/python:3.6-slim@sha256:0bcebc9a555fd276e67a1848022d901bb2357ef70ad42054577dfabe61ecea19
+#4 sha256:bc5a219108601c74a718a145e6e9757c8d8708e0f79ecd577bdfd3336c024241
+#4 CACHED
+
+#5 [internal] load build context
+#5 sha256:0b72d0138c59a52ebbbd8b3df66eb9601cead67aa319609994888acee63feff5
+#5 transferring context: 36.26kB done
+#5 DONE 0.0s
+
+#6 [2/5] COPY requirements.txt /opt/orchestrator/requirements.txt
+#6 sha256:1f3065d0fb9e0297dc972109ef2e23c6e7fca266a6b2b7d0907a0aa2d254fe7b
+#6 DONE 0.0s
+
+#7 [3/5] RUN pip install -r /opt/orchestrator/requirements.txt
+#7 sha256:b5e11817aca69c2255181507ed3e6c08feef061105e2668f3ce2777392bbe6a5
+#7 1.082 WARNING: Value for scheme.headers does not match. Please report this to <https://github.com/pypa/pip/issues/9617>
+#7 1.082 distutils: /usr/local/include/python3.6m/UNKNOWN
+#7 1.082 sysconfig: /usr/local/include/python3.6m
+#7 1.082 WARNING: Additional context:
+#7 1.082 user = False
+#7 1.082 home = None
+#7 1.082 root = None
+#7 1.082 prefix = None
+#7 1.337 Collecting docker>=3.3.0
+#7 1.590   Downloading docker-5.0.0-py2.py3-none-any.whl (146 kB)
+#7 1.764 Collecting luigi>=2.8.3
+#7 1.817   Downloading luigi-3.0.3.tar.gz (1.2 MB)
+#7 2.520 Collecting requests!=2.18.0,>=2.14.2
+#7 2.574   Downloading requests-2.25.1-py2.py3-none-any.whl (61 kB)
+#7 2.657 Collecting websocket-client>=0.32.0
+#7 2.707   Downloading websocket_client-0.58.0-py2.py3-none-any.whl (61 kB)
+#7 2.793 Collecting python-dateutil<3,>=2.7.5
+#7 2.843   Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+#7 2.939 Collecting tenacity<7,>=6.3.0
+#7 2.989   Downloading tenacity-6.3.1-py2.py3-none-any.whl (36 kB)
+#7 3.063 Collecting python-daemon
+#7 3.110   Downloading python_daemon-2.3.0-py2.py3-none-any.whl (35 kB)
+#7 3.253 Collecting tornado<7,>=5.0
+#7 3.304   Downloading tornado-6.1-cp36-cp36m-manylinux2010_x86_64.whl (427 kB)
+#7 3.414 Collecting six>=1.5
+#7 3.464   Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+#7 3.555 Collecting certifi>=2017.4.17
+#7 3.602   Downloading certifi-2020.12.5-py2.py3-none-any.whl (147 kB)
+#7 3.686 Collecting chardet<5,>=3.0.2
+#7 3.733   Downloading chardet-4.0.0-py2.py3-none-any.whl (178 kB)
+#7 3.850 Collecting urllib3<1.27,>=1.21.1
+#7 3.899   Downloading urllib3-1.26.4-py2.py3-none-any.whl (153 kB)
+#7 3.981 Collecting idna<3,>=2.5
+#7 4.028   Downloading idna-2.10-py2.py3-none-any.whl (58 kB)
+#7 4.153 Collecting docutils
+#7 4.201   Downloading docutils-0.17.1-py2.py3-none-any.whl (575 kB)
+#7 4.340 Requirement already satisfied: setuptools in /usr/local/lib/python3.6/site-packages (from python-daemon->luigi>=2.8.3->-r /opt/orchestrator/requirements.txt (line 2)) (56.0.0)
+#7 4.400 Collecting lockfile>=0.10
+#7 4.448   Downloading lockfile-0.12.2-py2.py3-none-any.whl (13 kB)
+#7 4.488 Building wheels for collected packages: luigi
+#7 4.488   Building wheel for luigi (setup.py): started
+#7 4.899   Building wheel for luigi (setup.py): finished with status 'done'
+#7 4.901   Created wheel for luigi: filename=luigi-3.0.3-py3-none-any.whl size=1077023 sha256=e5d73c4191ca0723ba9c84d72b75b7c7b90b6dd553b917d388ee6025eb9a3b73
+#7 4.902   Stored in directory: /root/.cache/pip/wheels/cb/d0/68/c6caddae691705bbc875b90c0892de7a05ffb74f9fb16a70b3
+#7 4.905 Successfully built luigi
+#7 4.959 Installing collected packages: urllib3, six, lockfile, idna, docutils, chardet, certifi, websocket-client, tornado, tenacity, requests, python-dateutil, python-daemon, luigi, docker
+#7 5.905 WARNING: Value for scheme.headers does not match. Please report this to <https://github.com/pypa/pip/issues/9617>
+#7 5.905 distutils: /usr/local/include/python3.6m/UNKNOWN
+#7 5.905 sysconfig: /usr/local/include/python3.6m
+#7 5.905 WARNING: Additional context:
+#7 5.905 user = False
+#7 5.905 home = None
+#7 5.905 root = None
+#7 5.905 prefix = None
+#7 5.910 Successfully installed certifi-2020.12.5 chardet-4.0.0 docker-5.0.0 docutils-0.17.1 idna-2.10 lockfile-0.12.2 luigi-3.0.3 python-daemon-2.3.0 python-dateutil-2.8.1 requests-2.25.1 six-1.15.0 tenacity-6.3.1 tornado-6.1 urllib3-1.26.4 websocket-client-0.58.0
+#7 5.910 WARNING: Running pip as root will break packages and permissions. You should install packages reliably by using venv: https://pip.pypa.io/warnings/venv
+#7 DONE 6.2s
+
+#8 [4/5] COPY . /opt/orchestrator/
+#8 sha256:86a4971743b95f3211781c5779640f80a9c4b4bbed57e3e21d86f58119b80c32
+#8 DONE 0.0s
+
+#9 [5/5] WORKDIR /opt/orchestrator/
+#9 sha256:f6cb32d505e112719ee3899ff5472d617903d6946ac95f9303feaefbe2b45834
+#9 DONE 0.0s
+
+#10 exporting to image
+#10 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 writing image sha256:f52c8fec4905f66b41fe347a14750531da083a307fbe8a331a7a5ff41f9b844c done
+#10 naming to docker.io/code-challenge/orchestrator:latest done
+#10 DONE 0.3s
+Docker Compose is now in the Docker CLI, try `docker compose up`
+
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Successfully built f52c8fec4905f66b41fe347a14750531da083a307fbe8a331a7a5ff41f9b844c
+Image for service luigid was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+Creating code-challenge-2020_luigid_1 ... 
+Creating code-challenge-2020_luigid_1 ... done
+Creating code-challenge-2020_orchestrator_1 ... 
+Creating code-challenge-2020_orchestrator_1 ... done
+Attaching to code-challenge-2020_orchestrator_1
+[36morchestrator_1  |[0m DEBUG: Checking if MakeReport(no_remove_finished=False, out_dir=/usr/share/data/report/) is complete
+[36morchestrator_1  |[0m DEBUG: Checking if EvaluateModels(no_remove_finished=False, in_csv=/usr/share/data/processed/test.csv, in_dir=/usr/share/data/models/, out_dir=/usr/share/data/results/) is complete
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   MakeReport_False__usr_share_data__9b6bd538aa   has status   PENDING
+[36morchestrator_1  |[0m DEBUG: Checking if TrainModels(no_remove_finished=False, in_csv=/usr/share/data/processed/train.csv, out_dir=/usr/share/data/models/) is complete
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   EvaluateModels__usr_share_data___usr_share_data__False_5a9c2eafb7   has status   PENDING
+[36morchestrator_1  |[0m DEBUG: Checking if ProcessData(no_remove_finished=False, in_csv=/usr/share/data/raw/wine_dataset.csv, out_dir=/usr/share/data/processed/, test_size=0.3) is complete
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   TrainModels__usr_share_data__False__usr_share_data__e0ab65d5d2   has status   PENDING
+[36morchestrator_1  |[0m DEBUG: Checking if DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv) is complete
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   ProcessData__usr_share_data__False__usr_share_data__289b864c04   has status   PENDING
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   DownloadData_wine_dataset_False__usr_share_data__79bc385f2e   has status   PENDING
+[36morchestrator_1  |[0m INFO: Done scheduling tasks
+[36morchestrator_1  |[0m INFO: Running Worker with 1 processes
+[36morchestrator_1  |[0m DEBUG: Asking scheduler for work...
+[36morchestrator_1  |[0m DEBUG: Pending tasks: 5
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) running   DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv)
+[36morchestrator_1  |[0m INFO: INFO:download-data:Downloading dataset
+[36morchestrator_1  |[0m INFO: INFO:download-data:Will write to /usr/share/data/raw/wine_dataset.csv
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) done      DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv)
+[36morchestrator_1  |[0m DEBUG: 1 running tasks, waiting for next task to finish
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   DownloadData_wine_dataset_False__usr_share_data__79bc385f2e   has status   DONE
+[36morchestrator_1  |[0m DEBUG: Asking scheduler for work...
+[36morchestrator_1  |[0m DEBUG: Pending tasks: 4
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) running   ProcessData(no_remove_finished=False, in_csv=/usr/share/data/raw/wine_dataset.csv, out_dir=/usr/share/data/processed/, test_size=0.3)
+[36morchestrator_1  |[0m INFO: INFO:process-data:Processing dataset
+[36morchestrator_1  |[0m INFO: INFO:process-data:Load file from /usr/share/data/raw/wine_dataset.csv
+[36morchestrator_1  |[0m INFO: INFO:process-data:Save train/test datasets to /usr/share/data/processed/
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) done      ProcessData(no_remove_finished=False, in_csv=/usr/share/data/raw/wine_dataset.csv, out_dir=/usr/share/data/processed/, test_size=0.3)
+[36morchestrator_1  |[0m DEBUG: 1 running tasks, waiting for next task to finish
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   ProcessData__usr_share_data__False__usr_share_data__289b864c04   has status   DONE
+[36morchestrator_1  |[0m DEBUG: Asking scheduler for work...
+[36morchestrator_1  |[0m DEBUG: Pending tasks: 3
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) running   TrainModels(no_remove_finished=False, in_csv=/usr/share/data/processed/train.csv, out_dir=/usr/share/data/models/)
+[36morchestrator_1  |[0m INFO: INFO:train-models:Training models
+[36morchestrator_1  |[0m INFO: INFO:train-models:Load data from /usr/share/data/processed/train.csv
+[36morchestrator_1  |[0m INFO: INFO:train-models:Train simple linear model
+[36morchestrator_1  |[0m INFO: INFO:train-models:Save linear model to /usr/share/data/models/linear.pkl
+[36morchestrator_1  |[0m INFO: INFO:train-models:Train simple lightgbm model
+[36morchestrator_1  |[0m INFO: INFO:train-models:Save lightgbm model to /usr/share/data/models/gbm.pkl
+[36morchestrator_1  |[0m INFO: [LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000083 seconds.
+[36morchestrator_1  |[0m INFO: You can set `force_row_wise=true` to remove the overhead.
+[36morchestrator_1  |[0m INFO: And if memory is not enough, you can set `force_col_wise=true`.
+[36morchestrator_1  |[0m INFO: /usr/local/lib/python3.6/site-packages/lightgbm/basic.py:1433: UserWarning: Overriding the parameters from Reference Dataset.
+[36morchestrator_1  |[0m INFO: _log_warning('Overriding the parameters from Reference Dataset.')
+[36morchestrator_1  |[0m INFO: /usr/local/lib/python3.6/site-packages/lightgbm/basic.py:1245: UserWarning: categorical_column in param dict is overridden.
+[36morchestrator_1  |[0m INFO: _log_warning('{} in param dict is overridden.'.format(cat_alias))
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) done      TrainModels(no_remove_finished=False, in_csv=/usr/share/data/processed/train.csv, out_dir=/usr/share/data/models/)
+[36morchestrator_1  |[0m DEBUG: 1 running tasks, waiting for next task to finish
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   TrainModels__usr_share_data__False__usr_share_data__e0ab65d5d2   has status   DONE
+[36morchestrator_1  |[0m DEBUG: Asking scheduler for work...
+[36morchestrator_1  |[0m DEBUG: Pending tasks: 2
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) running   EvaluateModels(no_remove_finished=False, in_csv=/usr/share/data/processed/test.csv, in_dir=/usr/share/data/models/, out_dir=/usr/share/data/results/)
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Evaluating models
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Load data from /usr/share/data/processed/test.csv
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Evaluate linear model
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Load linear model from /usr/share/data/models/linear.pkl
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Linear model MAE is 1.94, MSE is 5.91
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Evaluate lightgbm model
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Load lightgbm model from /usr/share/data/models/gbm.pkl
+[36morchestrator_1  |[0m INFO: INFO:evaluate-models:Lightgbm model MAE is 1.77, MSE is 5.00
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) done      EvaluateModels(no_remove_finished=False, in_csv=/usr/share/data/processed/test.csv, in_dir=/usr/share/data/models/, out_dir=/usr/share/data/results/)
+[36morchestrator_1  |[0m DEBUG: 1 running tasks, waiting for next task to finish
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   EvaluateModels__usr_share_data___usr_share_data__False_5a9c2eafb7   has status   DONE
+[36morchestrator_1  |[0m DEBUG: Asking scheduler for work...
+[36morchestrator_1  |[0m DEBUG: Pending tasks: 1
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) running   MakeReport(no_remove_finished=False, out_dir=/usr/share/data/report/)
+[36morchestrator_1  |[0m INFO: status
+[36morchestrator_1  |[0m INFO: Processing chunk 1 named None from line 15
+[36morchestrator_1  |[0m INFO: Weaved make_report.py to /usr/share/data/report/report.html
+[36morchestrator_1  |[0m INFO: [pid 1] Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) done      MakeReport(no_remove_finished=False, out_dir=/usr/share/data/report/)
+[36morchestrator_1  |[0m DEBUG: 1 running tasks, waiting for next task to finish
+[36morchestrator_1  |[0m INFO: Informed scheduler that task   MakeReport_False__usr_share_data__9b6bd538aa   has status   DONE
+[36morchestrator_1  |[0m DEBUG: Asking scheduler for work...
+[36morchestrator_1  |[0m DEBUG: Done
+[36morchestrator_1  |[0m DEBUG: There are no more tasks to run at this time
+[36morchestrator_1  |[0m INFO: Worker Worker(salt=196577133, workers=1, host=05ce0586fe0f, username=root, pid=1) was stopped. Shutting down Keep-Alive thread
+[36morchestrator_1  |[0m INFO: 
+[36morchestrator_1  |[0m ===== Luigi Execution Summary =====
+[36morchestrator_1  |[0m 
+[36morchestrator_1  |[0m Scheduled 5 tasks of which:
+[36morchestrator_1  |[0m * 5 ran successfully:
+[36morchestrator_1  |[0m     - 1 DownloadData(no_remove_finished=False, fname=wine_dataset, out_dir=/usr/share/data/raw/, url=https://github.com/datarevenue-berlin/code-challenge-2019/releases/download/0.1.0/dataset_sampled.csv)
+[36morchestrator_1  |[0m     - 1 EvaluateModels(no_remove_finished=False, in_csv=/usr/share/data/processed/test.csv, in_dir=/usr/share/data/models/, out_dir=/usr/share/data/results/)
+[36morchestrator_1  |[0m     - 1 MakeReport(no_remove_finished=False, out_dir=/usr/share/data/report/)
+[36morchestrator_1  |[0m     - 1 ProcessData(no_remove_finished=False, in_csv=/usr/share/data/raw/wine_dataset.csv, out_dir=/usr/share/data/processed/, test_size=0.3)
+[36morchestrator_1  |[0m     - 1 TrainModels(no_remove_finished=False, in_csv=/usr/share/data/processed/train.csv, out_dir=/usr/share/data/models/)
+[36morchestrator_1  |[0m 
+[36morchestrator_1  |[0m This progress looks :) because there were no failed tasks or missing dependencies
+[36morchestrator_1  |[0m 
+[36morchestrator_1  |[0m ===== Luigi Execution Summary =====
+[36morchestrator_1  |[0m 
+[36mcode-challenge-2020_orchestrator_1 exited with code 0
+[0m
