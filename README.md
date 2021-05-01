@@ -6,7 +6,7 @@ Some cool stuff with ML orchestrated by Docker and Luigi, presented by Pweave.
 * `download_data`. Download data.
 * `process_data`. Process data. Generate features. Make Train/Test split.
 * `train_models`. Train models. Train linear regression and lightgbm on Train dataset.
-* `evaluate_models`. Evaluate models. Calculate metric perfomance on Test dataset for both models. Plot some chats.
+* `evaluate_models`. Evaluate models. Calculate metric performance on Test dataset for both models. Plot some charts.
 * `make_report`. Make report. Present results of the whole pipeline.
 
 # How to run
