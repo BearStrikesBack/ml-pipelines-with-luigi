@@ -1,9 +1,9 @@
+import re
+import logging
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 
-import re
 import click
-import logging
 
 import numpy as np
 import pandas as pd
@@ -58,7 +58,8 @@ def process_data(in_csv, out_dir, test_size):
     data['price'] = np.log(data['price'])
 
     # make split
-    train, test = train_test_split(data, test_size = float(test_size), stratify = data['points'], random_state=42)
+    train, test = train_test_split(data, test_size=float(test_size), \
+                                    stratify=data['points'], random_state=42)
 
     log.info(f'Save train/test datasets to {out_dir}')
 

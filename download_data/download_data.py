@@ -1,8 +1,8 @@
 from pathlib import Path
 
-import click
 import logging
 import urllib.request
+import click
 
 
 logging.basicConfig(level=logging.INFO)

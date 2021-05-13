@@ -5,8 +5,8 @@
 #' # Introduction
 
 #' This report was generated as the final output of the project pipeline.
-#' This report consists of two parts, and it represents my view on the problem. 
-#' Part number 1 is the utility part. In this part I calculate some metrics, 
+#' This report consists of two parts, and it represents my view on the problem.
+#' Part number 1 is the utility part. In this part I calculate some metrics,
 #' plot some charts or import them from the output of another tasks of the pipeline.
 #' Part number 2 is the presentation part. I present key points of my approach in this part.
 

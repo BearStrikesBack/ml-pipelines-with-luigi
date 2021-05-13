@@ -1,17 +1,14 @@
+import pickle
+import json
 from pathlib import Path
-from sklearn import linear_model
-from sklearn.model_selection import train_test_split
+import logging
+import joblib
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 import click
-import logging
-import pickle
-import joblib
-import json
 
 import pandas as pd
 import numpy as np
-import lightgbm as lgb
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -23,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 def eval_lr(data, in_dir, scores):
     """
     Evaluate linear model.
-    
+
     Parameters
     ----------
     data: pd.DataFrame
@@ -56,7 +53,7 @@ def eval_lr(data, in_dir, scores):
     mae = mean_absolute_error(y_test, y_pred)
     mse = mean_squared_error(y_test, y_pred)
     residuals = y_test - y_pred
-    
+
     # update dict with scores
     scores['score'].extend([np.round(mae, 2), np.round(mse, 2)])
     scores['metrics'].extend(['mae', 'mse'])
@@ -68,7 +65,7 @@ def eval_lr(data, in_dir, scores):
 def eval_lgb(data, in_dir, scores, out_dir):
     """
     Evaluate gbm model.
-    
+
     Parameters
     ----------
     data: pd.DataFrame
@@ -98,8 +95,8 @@ def eval_lgb(data, in_dir, scores, out_dir):
 
     # prepare data
     coltouse = ['country', 'price', 'province', 'taster_name', \
-                'region_1', 'region_2', 'variety', 'year']    
-    
+                'region_1', 'region_2', 'variety', 'year']
+
     X_test = data[coltouse]
     y_test = data['points']
 
@@ -119,10 +116,10 @@ def eval_lgb(data, in_dir, scores, out_dir):
 
     # plot feature importance and save png
     feature_imp = pd.DataFrame({'Value':gbm.feature_importance(), 'Feature':X_test.columns})
-    
+
     plt.figure(figsize=(12, 8))
-    sns.barplot(x="Value", y="Feature", data=feature_imp.sort_values(by="Value", 
-                                                        ascending=False), palette="gray")
+    sns.barplot(x="Value", y="Feature", data=feature_imp.sort_values(by="Value", ascending=False), \
+                palette="gray")
     plt.title('LGBM Feature Importance')
     plt.tight_layout()
     plt.savefig(Path(out_dir) / 'gbm_feat_importance.png', dpi=200)
@@ -133,7 +130,7 @@ def eval_lgb(data, in_dir, scores, out_dir):
 def draw_residuals(residuals_gbm, residuals_lr, out_dir):
     """
     Draw residuals of both models to compare.
-    
+
     Parameters
     ----------
     residuals_gbm: array-like of shape (n_samples, 1)
@@ -150,22 +147,22 @@ def draw_residuals(residuals_gbm, residuals_lr, out_dir):
     fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 14))
     bins = 30
 
-    ax1.hist(residuals_gbm.reshape(-1,1), bins=bins, color='b', density=True)
+    ax1.hist(residuals_gbm.reshape(-1, 1), bins=bins, color='b', density=True)
     ax1.set_xlabel("Residuals")
     ax1.set_ylabel("Freq")
     ax1.set_title('Residuals distribution for lgb')
     ax1.grid(axis='y')
     ax1.set_xlim(-10, 10)
 
-    ax2.hist(residuals_lr.reshape(-1,1), bins=bins, color='r', density=True)
+    ax2.hist(residuals_lr.reshape(-1, 1), bins=bins, color='r', density=True)
     ax2.set_xlabel("Residuals")
     ax2.set_ylabel("Freq")
     ax2.set_title('Residuals distribution for lr')
     ax2.grid(axis='y')
     ax2.set_xlim(-10, 10)
 
-    ax3.hist(residuals_gbm.reshape(-1,1), bins=bins, color='b', density=True)
-    ax3.hist(residuals_lr.reshape(-1,1), bins=bins, color='r', alpha=0.6, density=True)
+    ax3.hist(residuals_gbm.reshape(-1, 1), bins=bins, color='b', density=True)
+    ax3.hist(residuals_lr.reshape(-1, 1), bins=bins, color='r', alpha=0.6, density=True)
     ax3.set_xlabel("Residuals")
     ax3.set_ylabel("Freq")
     ax3.set_title('Residuals distribution for both models')
@@ -180,7 +177,7 @@ def draw_residuals(residuals_gbm, residuals_lr, out_dir):
 def draw_scores(scores, out_dir):
     """
     Draw metric perfomance for both models.
-    
+
     Parameters
     ----------
     scores: dict
@@ -210,7 +207,7 @@ def draw_scores(scores, out_dir):
 def evaluate_models(in_csv, in_dir, out_dir):
     """
     Evaluate models on holdout dataset.
-    
+
     Parameters
     ----------
     in_csv: str

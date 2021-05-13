@@ -1,14 +1,13 @@
+import logging
+import pickle
 from pathlib import Path
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
 
 import click
-import logging
-import pickle
 import joblib
 
 import pandas as pd
-import numpy as np
 import lightgbm as lgb
 
 
@@ -18,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 def lr_model(data, out_dir):
     """
     Train linear model and save to pickle.
-    
+
     Parameters
     ----------
     data: pd.DataFrame
@@ -65,16 +64,16 @@ def gmb_model(data, out_dir):
 
     for col in cat_features:
         data[col] = data[col].astype("category")
-    
+
     coltouse = ['country', 'price', 'province', 'taster_name', \
                 'region_1', 'region_2', 'variety', 'year']
-    
+
     # get val set for early stop
     X_train, X_val, y_train, y_val = train_test_split(data[coltouse], \
                                                       data[['points']], \
                                                       test_size=0.2, \
                                                       random_state=42)
-    
+
     # set params
     params = {
         'boosting_type': 'gbdt',
@@ -87,26 +86,26 @@ def gmb_model(data, out_dir):
     }
 
     # prepare data
-    train_data = lgb.Dataset(X_train, 
-                             y_train, 
-                             categorical_feature=cat_features, 
+    train_data = lgb.Dataset(X_train,
+                             y_train,
+                             categorical_feature=cat_features,
                              free_raw_data=False)
 
-    valid_data = lgb.Dataset(X_val, 
-                             y_val, 
-                             categorical_feature=cat_features, 
+    valid_data = lgb.Dataset(X_val,
+                             y_val,
+                             categorical_feature=cat_features,
                              free_raw_data=False)
 
     # train model
-    gbm = lgb.train(params, 
-                    train_data, 
-                    valid_sets=[valid_data], 
-                    verbose_eval=False, 
-                    categorical_feature=cat_features, 
+    gbm = lgb.train(params,
+                    train_data,
+                    valid_sets=[valid_data],
+                    verbose_eval=False,
+                    categorical_feature=cat_features,
                     num_boost_round=1200,
                     early_stopping_rounds=100)
 
-    # save model 
+    # save model
     joblib.dump(gbm, Path(out_dir) / 'gbm.pkl')
 
 
